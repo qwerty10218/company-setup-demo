@@ -1,0 +1,169 @@
+﻿
+    /* ?? Base ?? */
+    body {
+      background-color: #0A0A0C;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 0);
+      background-size: 28px 28px;
+      font-size: 17px;          /* ?亙之?潮?閮哨?撟湧蝯?梯??渲???*/
+      line-height: 1.75;
+    }
+    /* 銝剜?摮?皜??*/
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+    ::selection { background: #D4AF37; color: #0A0A0C; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0A0A0C; }
+    ::-webkit-scrollbar-thumb { background: #2a2a2e; border-radius: 99px; }
+
+    /* ?? Accordion ?? */
+    .acc-body { display:none; }
+    .acc-item.open .acc-body { display:block; }
+    .acc-item.open .acc-chevron { transform: rotate(180deg); }
+    .acc-chevron { transition: transform 180ms ease-out; }
+
+    /* ?? Step cards ?? */
+    .step-body { display:none; }
+    .step-card.open .step-body { display:block; }
+    .step-card.open .step-chevron { transform: rotate(180deg); }
+    .step-chevron { transition: transform 180ms ease-out; }
+
+    /* ?? Wizard ?? */
+    .wiz-q { display:none; }
+    .wiz-q.active { display:block; }
+    .mode-view { display:none; }
+    .mode-view.active { display:block; }
+
+    /* ?? Tab active ?? */
+    .tab-btn.active { color:#0A0A0C; background-color:#D4AF37; border-color:#D4AF37; }
+
+    /* ?? Fade animation ?? */
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(10px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 220ms ease-out forwards; }
+
+    /* ?? Progress dots ?? */
+    .prog-dot { transition: all 180ms ease; }
+    .prog-line { transition: background 300ms ease; }
+
+    /* ??????????????????????????????????????
+       HIGHLIGHT TOGGLE ???渲死?身閮?
+    ?????????????????????????????????????? */
+    .hl-toggle-wrap {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+    .hl-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #6b6b72;
+      transition: all 180ms ease;
+      font-family: 'Noto Sans TC', sans-serif;
+      line-height: 1.4;
+    }
+    .hl-toggle-btn:first-child { border-right: 1px solid rgba(255,255,255,0.1); }
+    .hl-toggle-btn.hl-on  { background: rgba(212,175,55,0.15); color: #D4AF37; }
+    .hl-toggle-btn.hl-off { background: rgba(255,255,255,0.04); color: #EAEAEC; }
+    .hl-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+    .hl-toggle-btn.hl-on .hl-dot  { opacity: 1; }
+    .hl-toggle-btn.hl-off .hl-dot { background: #4ADE80; opacity: 1; }
+
+    /* Cell highlight states (Minimalist) */
+    .diff-ltd  { color: #D4AF37; border-bottom: 1px solid #D4AF37; transition: all 200ms ease; }
+    .diff-corp { color: #FFFFFF; border-bottom: 1px solid #FFFFFF; transition: all 200ms ease; }
+    .diff-warn { color: #F87171; font-weight: 600; transition: all 200ms ease; }
+    .diff-same { opacity: 0.4; transition: all 200ms ease; }
+
+    /* ??????????????????????????????????????
+       瘥?銵冽 ???????
+    ?????????????????????????????????????? */
+    .compare-table { width:100%; border-collapse: collapse; }
+    .compare-table th, .compare-table td { padding: 14px 16px; text-align:left; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align:top; font-size:16px; }
+    .compare-table th { font-size:13px; letter-spacing:0.06em; }
+    .compare-table tr:last-child td { border-bottom: none; }
+
+    @media (max-width: 767px) {
+      /* ?? 銵冽頧???? */
+      .compare-table thead { display:none; }
+      .compare-table tr { display:block; border: 1px solid rgba(255,255,255,0.08); border-radius:8px; margin-bottom:10px; padding:4px 0; }
+      .compare-table td { display:block; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 10px 14px; font-size:15px; }
+      .compare-table td:first-child { font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#8A8A90; padding-bottom:4px; border-bottom: none; }
+      .compare-table td:last-child { border-bottom: none; }
+      
+      /* Mobile table headers */
+      .compare-table td:nth-child(2)::before {
+        content: "?????砍 ??;
+        display: block;
+        font-size: 11px;
+        color: #d4af37; /* luxury accent approx */
+        margin-bottom: 4px;
+      }
+      .compare-table td:nth-child(3)::before {
+        content: "???∩遢???砍 ??;
+        display: block;
+        font-size: 11px;
+        color: #8A8A90;
+        margin-bottom: 4px;
+      }
+      /* ?? ?湧? padding ?? */
+      .container-inner { padding-left: 16px !important; padding-right: 16px !important; }
+      .acc-body { padding: 16px !important; }
+
+      /* ?? 甇仿??∠??????? */
+      .step-header-grid { display:flex; flex-direction:column; gap:10px; padding:16px; }
+      .step-num-col { display:flex; align-items:center; gap:10px; }
+
+      /* ?? Wizard ?賊? ?? */
+      .wiz-opt { padding: 18px 16px !important; }
+      .wiz-opt-icon { font-size: 26px !important; }
+
+      /* ?? Header wrapping ?? */
+      .header-title-text { font-size: 15px !important; }
+    }
+
+    /* ??????????????????????????????????????
+       RWD ?典?隤踵嚗?璈霈?嚗?
+    ?????????????????????????????????????? */
+    @media (max-width: 767px) {
+      body { font-size: 16px; }
+      h1 { font-size: 1.15rem !important; }
+      h2 { font-size: 1.6rem !important; }
+      h3 { font-size: 1.35rem !important; }
+
+      /* ?詨璅惜?湔?璆?*/
+      select { font-size: 16px !important; padding: 14px 12px !important; }
+      label  { font-size: 13px !important; margin-bottom: 6px !important; }
+
+      /* 銝餅??憭?*/
+      .btn-main  { padding: 16px 28px !important; font-size: 16px !important; }
+
+      /* Header badge 蝮桀??啣???*/
+      .header-badge { font-size: 10px !important; padding: 3px 8px !important; }
+
+      /* Progress dots ?曉之 */
+      .prog-dot { width: 36px !important; height: 36px !important; font-size: 14px !important; }
+
+      /* 瘜?璇?蝮格? */
+      .law-ref-mono { font-size: 12px !important; min-width: 0 !important; width: 100% !important; }
+    }
+  
